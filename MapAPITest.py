@@ -63,14 +63,14 @@ def GaoDeMapAPI():
         "Status": False
     }
     params = {"key": Amap_AK, "jscode": Amap_SK}
-    print(params)
+    #print(params)
     # 测试webapi接口
     try:
         print("正在测试高德webapi...")
         api_url = "https://restapi.amap.com/v3/direction/walking?&origin=116.434307,39.90909&destination=116.434446,39.90816"
         r = requests.get(api_url, params=params, timeout=5)
-        print("请求URL:", r.request.url)
-        print("响应数据:", r.text)
+        #print("请求URL:", r.request.url)
+        #print("响应数据:", r.text)
         data = r.json()
         if data.get("status") == "1":
             results["Status"] = True
@@ -84,8 +84,8 @@ def GaoDeMapAPI():
         print("正在测试高德JS-API接口...")
         api_url = "https://restapi.amap.com/v3/geocode/regeo?s=rsv3&location=116.434446,39.90816&platform=JS"
         r = requests.get(api_url, params=params, timeout=5)
-        print("请求URL:", r.request.url)
-        print("响应数据:", r.text)
+        #print("请求URL:", r.request.url)
+        #print("响应数据:", r.text)
         data = r.json()
         if data.get("status") == "1":
             results["Status"] = True
@@ -100,8 +100,8 @@ def GaoDeMapAPI():
         api_url = "https://restapi.amap.com/v3/geocode/regeo?&location=117.19674%2C39.14784&extensions=all&s=rsx&platform=WXJS&appname=c589cf63f592ac13bcab35f8cd18f495&sdkversion=1.2.0&logversion=2.0"
         r = requests.get(api_url, params=params, timeout=5)
         data = r.json()
-        print("请求URL:", r.request.url)
-        print("响应数据:", r.text)
+        #print("请求URL:", r.request.url)
+        #print("响应数据:", r.text)
         if data.get("status") == "1":
             results["Status"] = True
             results["Info"] = r.text
